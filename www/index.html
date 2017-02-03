@@ -39,8 +39,22 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Hello World</title>
-<script type="text/javascript" src="js/require.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="js/require.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+  // tell require.js where our Ceylon modules are 
+  require.config({
+    baseUrl:'modules',
+  });
+  // when the document is ready
+  jQuery(function(){
+    // load our Ceylon module
+    require(['cordova/1.0.0/cordova-1.0.0'], function(client) {
+      // and call our run method
+      client.run();
+    });
+});
+</script>
     </head>
     <body>
         <div class="app">
